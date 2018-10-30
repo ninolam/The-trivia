@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import api from '../../helpers/api';
 import Category from './Category';
 
 class CategoryContainer extends Component {
-  componentDidMount() {
-    fetch(`http://jservice.io/api/category?id=${this.props.match.params.name}`).then(response => {
-      response.json().then(category => {
-        console.log(category);
-      })
-    })
+  state = {
+    category: null,
+  }
+  async componentDidMount() {
+    const data = api.getCategoryById(this.props.match.params.id);
+    this.setState({
+      category: data,
+    });
   }
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return (
       <Category
-        categoryName={this.props.match.params.name}
+        categoryName={this.props.match.params.id}
+        category={this.state.category}
       />
     );
   }
