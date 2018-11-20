@@ -7,7 +7,7 @@ class CategoryContainer extends Component {
     category: null,
   }
   async componentDidMount() {
-    const data = api.getCategoryById(this.props.match.params.id);
+    const data = await api.getCategoryById(this.props.match.params.id);
     this.setState({
       category: data,
     });
