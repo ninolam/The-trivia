@@ -7,7 +7,7 @@ class CategoryContainer extends Component {
     category: null,
     currentQuestion: 0,
   }
-  
+
   // createRef in order to bring back input value to its parent
   answerInput = createRef();
 
@@ -24,6 +24,7 @@ class CategoryContainer extends Component {
     // here I prevent de fault bh of submitting form
     e.preventDefault();
     const answer = this.answerInput.current.value;
+    console.log(answer);
 
   }
 

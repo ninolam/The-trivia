@@ -15,7 +15,7 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput })
             {/* We give the ref below in order check the value */}
             <input ref={answerInput} />
           </div>
-          <button onClick={handleSubmit} className="question__submit" type="submit">
+          <button className="question__submit" type="submit">
             Next
           </button>
         </div>
