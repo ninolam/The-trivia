@@ -21,11 +21,13 @@ class CategoryContainer extends Component {
   }
 
   handleSubmit = (e) => {
-    // here I prevent de fault bh of submitting form
+    // here I prevent the default bh of submitting form
     e.preventDefault();
+    // write logic to handle good/bad answer
+    // increment currentQuestion
+    // save in the store the id of the questio
+    // if no more question, remove category from categories playable
     const answer = this.answerInput.current.value;
-    console.log(answer);
-
   }
 
   render() {
