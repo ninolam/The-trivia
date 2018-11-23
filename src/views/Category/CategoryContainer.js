@@ -25,8 +25,9 @@ class CategoryContainer extends Component {
     e.preventDefault();
     // write logic to handle good/bad answer
     // increment currentQuestion
-    // save in the store the id of the questio
+    // save in the storage the id of the question
     // if no more question, remove category from categories playable
+    // increment score somewhere and redirect to /
     const answer = this.answerInput.current.value;
   }
 
