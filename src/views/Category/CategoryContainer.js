@@ -28,7 +28,9 @@ class CategoryContainer extends Component {
     // save in the storage the id of the question
     // if no more question, remove category from categories playable
     // increment score somewhere and redirect to /
+
     const answer = this.answerInput.current.value;
+    // check if answer is equal to the requested answer from the current question
   }
 
   render() {
@@ -42,7 +44,8 @@ class CategoryContainer extends Component {
         category={category}
         currentQuestionIndex={currentQuestion}
         handleSubmit={this.handleSubmit}
-        answerInput={this.answerInput} // plug createRef to chidlren
+        // plug createRef to chidlren
+        answerInput={this.answerInput}
       />
     );
   }
