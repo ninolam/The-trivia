@@ -15,6 +15,7 @@ class CategoryContainer extends Component {
   async componentDidMount() {
     const data = await api.getCategoryById(this.props.match.params.id);
     // stored response in the state;
+    console.log(data);
     this.setState({
       category: data,
     });
@@ -24,12 +25,32 @@ class CategoryContainer extends Component {
     // here I prevent the default bh of submitting form
     e.preventDefault();
     // write logic to handle good/bad answer
+    var currentQuestionIndex = this.state.currentQuestion;
+
+    const answerInput = this.answerInput.current.value.toLowerCase()
+    const answerExpected = this.state.category.clues[currentQuestionIndex].answer.toLowerCase();
+
+    if(answerInput === answerExpected && currentQuestionIndex <= this.state.category.clues_count - 2 ){
+      console.log('good');
+      currentQuestionIndex = currentQuestionIndex + 1;
+      this.setState({
+        currentQuestion: currentQuestionIndex 
+      })
+      this.answerInput.current.value = ""
+      console.log(currentQuestionIndex);
+      console.log(this.state.currentQuestion);
+    }
+    else{
+      console.log('bad');
+      console.log(currentQuestionIndex);
+    }
+    
+    
+    
     // increment currentQuestion
     // save in the storage the id of the question
     // if no more question, remove category from categories playable
     // increment score somewhere and redirect to /
-
-    const answer = this.answerInput.current.value;
     // check if answer is equal to the requested answer from the current question
   }
 
