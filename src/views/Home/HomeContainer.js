@@ -20,3 +20,8 @@ class HomeContainer extends Component {
 }
 
 export default HomeContainer;
+
+
+// Cette page récupére les données de l'api et les stock dans une variable data, 
+// le state des catégorie est ensuite mit à jour avec les nouvelles data,
+// Puis toutes les catégories sont stocké grâce et passer en props à la Home pour que celle-ci les affiches.

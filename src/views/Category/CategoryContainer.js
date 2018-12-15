@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import api from '../../helpers/api';
 import Category from './Category';
+import { Link } from 'react-router-dom';
 
 class CategoryContainer extends Component {
   state = {
@@ -10,6 +11,8 @@ class CategoryContainer extends Component {
     lives: 3
   }
 
+
+
   // createRef in order to bring back input value to its parent
   answerInput = createRef();
 
@@ -18,9 +21,37 @@ class CategoryContainer extends Component {
     const data = await api.getCategoryById(this.props.match.params.id);
     // stored response in the state;
     console.log(data);
+    const score = localStorage.getItem('score')
+    const lives = localStorage.getItem('lives')
+
+    if ( score > 0 ) {
+      this.setState({ score })
+    }
+    else {
+      this.setState({score: 0})
+    }
+
+    if ( lives == null || lives === 0 ) {
+      this.setState({ lives  : 3})
+    }
+    else {
+      this.setState({lives})
+    }
+
+    // if (lives < 3) {
+    //   this.setState({lives})
+    // }
     this.setState({
       category: data,
     });
+
+   
+  }
+
+  componentDidUpdate() {
+    const{score, lives} = this.state
+    localStorage.setItem('score', score )
+    localStorage.setItem('lives', lives )
   }
 
   handleSubmit = (e) => {
@@ -31,7 +62,6 @@ class CategoryContainer extends Component {
 
     const answerInput = this.answerInput.current.value.toLowerCase()
     const answerExpected = this.state.category.clues[currentQuestionIndex].answer.toLowerCase();
-    const score = 0;
 
     if(answerInput === answerExpected ){
       console.log('good');
@@ -48,37 +78,69 @@ class CategoryContainer extends Component {
     else{
       console.log('bad');
       console.log(currentQuestionIndex);
+      if(this.state.lives > 0) {
       this.setState(prevState => ({
         lives: prevState.lives - 1
       }));
-      console.log(this.state.lives);
+     }
+
+    
     }
   }
-  handleScore = (e) => {
-    e.preventDefault();
-    console.log('uvgdjgv');
+
+
+  resetScore (){
+    this.setState({
+      lives: 3
+    });
   }
-  
+
+ 
 
   render() {
     const { category, currentQuestion } = this.state;
-    // const categoryLength = this.state.category.clues_count;
+
+    const categories = { ...this.state.category }
+    console.log(categories)
+
+
+    const clues_count = Object.values(categories)
+    // const categoryLength = this.state.category;
+    // category.map(category => category)
+   // const clues_count = category.clues_count;
+    //console.log(clues_count);
+
+
+
+
+
+
+
     // at first render, category will be null so we need to wait
     // before using data.
     if (this.state.lives === 0) {
       return (
         <div>
           <p>Game Over!</p>
-          <button type="button" onClick={this.resetCategory}>Reset category</button>
+          <button type="button" onClick={this.resetLives}>
+          <Link to={'/'}>
+          Back to categories
+          </Link>
+          </button>
         </div>
       )
     }
-    if(currentQuestion === 5){
+    if(currentQuestion === clues_count[2]){
       return (
         <div>
-          <p> iduuasdi</p>
+          <p> Congratulations.</p>
           <p>You win! You have {this.state.lives} lives left !</p>
-          <button type="button" onClick={this.resetCategory}>Reset category</button>
+          <p>You have {this.state.score} points !</p>
+          <button type="button">
+          <Link to={'/'}>
+          Back to categories
+          </Link>
+          </button>
         </div>
       )
     }

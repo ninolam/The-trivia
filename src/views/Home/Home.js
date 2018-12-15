@@ -17,6 +17,8 @@ const Home = ({ categories }) => (
   </section>
 );
 
+// Le compossant Home récupére les catégories provenant de HomeContainer passer en props et les affiches grâce à une boucle 
+
 Home.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -27,4 +29,7 @@ Home.propTypes = {
   ),
 }
 
-export default Home;
+// Crée un model d'affichage pour les différentes catégories
+
+export default Home; // rend disponible le composant dans l'application 
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, handleScore, score, lives }) => {
+const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score, lives }) => {
   const currentQuestion = category.clues[currentQuestionIndex];
   return (
     <section>
@@ -34,10 +34,7 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, h
 Category.propTypes = {
   category: PropTypes.shape({}).isRequired,
   currentQuestionIndex: PropTypes.number.isRequired,
-  score: PropTypes.number.isRequired,
-  lives: PropTypes.number.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleScore: PropTypes.func.isRequired,
   answerInput: PropTypes.shape({
     value: PropTypes.instanceOf(HTMLInputElement)
   }),
