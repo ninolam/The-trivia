@@ -4,15 +4,18 @@ import Category from './Category';
 import { Link } from 'react-router-dom';
 
 class CategoryContainer extends Component {
-  state = {
-    category: null,
-    currentQuestion: 0,
-    score: 0,
-    lives: 3
-  }
 
+    state = {
+      category: null,
+      currentQuestion: 0,
+      score: 0,
+      lives: 3
+      
+    }
 
-
+     baseState = this.state.lives
+  
+  
   // createRef in order to bring back input value to its parent
   answerInput = createRef();
 
@@ -30,17 +33,19 @@ class CategoryContainer extends Component {
     else {
       this.setState({score: 0})
     }
-
-    if ( lives == null || lives === 0 ) {
-      this.setState({ lives  : 3})
-    }
-    else {
-      this.setState({lives})
-    }
+// Those conditions about the lives are not working when i try to reset the score on the page "game over"
+    // if ( lives == null || lives === 0 ) {
+    //   this.setState({ lives  : 3})
+    // }
+    // else {
+    //   this.setState({lives})
+    // }
 
     // if (lives < 3) {
     //   this.setState({lives})
     // }
+
+
     this.setState({
       category: data,
     });
@@ -52,6 +57,13 @@ class CategoryContainer extends Component {
     const{score, lives} = this.state
     localStorage.setItem('score', score )
     localStorage.setItem('lives', lives )
+
+// this condition is not working when i try to reset the score on the page "game over"
+    // if (this.state.lives === 0) {
+    //   this.setState({
+    //     lives: 3
+    //  });
+    // }
   }
 
   handleSubmit = (e) => {
@@ -88,14 +100,9 @@ class CategoryContainer extends Component {
     }
   }
 
-
-  resetScore (){
-    this.setState({
-      lives: 3
-    });
+  resetScore() {
+    this.setState({ lives : 3});
   }
-
- 
 
   render() {
     const { category, currentQuestion } = this.state;
@@ -111,18 +118,13 @@ class CategoryContainer extends Component {
     //console.log(clues_count);
 
 
-
-
-
-
-
     // at first render, category will be null so we need to wait
     // before using data.
-    if (this.state.lives === 0) {
+    if (this.state.lives === 0 ) {
       return (
         <div>
           <p>Game Over!</p>
-          <button type="button" onClick={this.resetLives}>
+          <button type="button" onClick={this.resetScore.bind(this)}>
           <Link to={'/'}>
           Back to categories
           </Link>
@@ -136,7 +138,7 @@ class CategoryContainer extends Component {
           <p> Congratulations.</p>
           <p>You win! You have {this.state.lives} lives left !</p>
           <p>You have {this.state.score} points !</p>
-          <button type="button">
+          <button type="button" onClick={this.initialState}>
           <Link to={'/'}>
           Back to categories
           </Link>
