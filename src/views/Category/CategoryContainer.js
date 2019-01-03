@@ -27,12 +27,20 @@ class CategoryContainer extends Component {
     const score = localStorage.getItem('score')
     const lives = localStorage.getItem('lives')
 
-    if ( score > 0 ) {
-      this.setState({ score })
-    }
-    else {
-      this.setState({score: 0})
-    }
+ /**
+  * this conditions about the score is notworking when trying to reset the score on the page "game",
+ but it still keep the informations in localStorage
+  */
+ 
+    // if ( score > 0 ) {
+    //   this.setState({ score })
+    // }
+    // else {
+    //   this.setState({score: 0})
+    // }
+
+
+
 // Those conditions about the lives are not working when i try to reset the score on the page "game over"
     // if ( lives == null || lives === 0 ) {
     //   this.setState({ lives  : 3})
@@ -100,8 +108,8 @@ class CategoryContainer extends Component {
     }
   }
 
-  resetScore() {
-    this.setState({ lives : 3});
+  resetScoreAndLives() {
+    this.setState({ lives : 3, score: 0})
   }
 
   render() {
@@ -124,7 +132,7 @@ class CategoryContainer extends Component {
       return (
         <div>
           <p>Game Over!</p>
-          <button type="button" onClick={this.resetScore.bind(this)}>
+          <button type="button" onClick={this.resetScoreAndLives.bind(this)}>
           <Link to={'/'}>
           Back to categories
           </Link>
