@@ -26,12 +26,13 @@ class CategoryContainer extends Component {
     console.log(data);
     const score = localStorage.getItem('score')
     const lives = localStorage.getItem('lives')
+    
 
  /**
   * this conditions about the score is notworking when trying to reset the score on the page "game",
  but it still keep the informations in localStorage
   */
- 
+
     // if ( score > 0 ) {
     //   this.setState({ score })
     // }
@@ -62,9 +63,10 @@ class CategoryContainer extends Component {
   }
 
   componentDidUpdate() {
-    const{score, lives} = this.state
+    const{score, lives, category} = this.state
     localStorage.setItem('score', score )
     localStorage.setItem('lives', lives )
+    localStorage.setItem('category', category.title )
 
 // this condition is not working when i try to reset the score on the page "game over"
     // if (this.state.lives === 0) {
