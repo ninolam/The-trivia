@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score, lives }) => {
   const currentQuestion = category.clues[currentQuestionIndex];
@@ -26,6 +27,9 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
         <div className="live_value">
         lives is:{lives}
         </div>
+        <button id="HomeButton" type="button">
+          <Link to={"/"}>Back To Home</Link>
+        </button>
       </form>
     </section>
   );
