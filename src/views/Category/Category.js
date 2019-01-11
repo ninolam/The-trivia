@@ -4,23 +4,31 @@ import { Link } from 'react-router-dom';
 
 const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score, lives }) => {
   const currentQuestion = category.clues[currentQuestionIndex];
+  const totalQuestion = category.clues_count;
+  const actualQuestionIndex = currentQuestionIndex + 1;
   return (
     <section>
-      <form onSubmit={ handleSubmit}>
-      {/* currentQuestionIndex === category.clues_count -1 ? handleScore : */}
-        <h1>You choosed: {category.title}</h1>
-        <div className="question">
-          <h3 className="question__title">
-            {currentQuestion.question}
-          </h3>
-          <div className="question__answerInput">
-            {/* We give the ref below in order check the value */}
-            <input ref={answerInput} />
+      <form onSubmit={ handleSubmit} className="container-category">
+        <section className="question">
+          <div className="question-flex">
+          <div className="questionContainer">
+            <h1 className="categoryTitle">{category.title}</h1>
+            <h3 className="questionTitle">{currentQuestion.question}</h3>
           </div>
-          <button className="question__submit" type="submit">
-            Next
-          </button>
-        </div>
+              {totalQuestion < 10 ?(
+                <p className="questionNumbers">0{actualQuestionIndex} / 0{totalQuestion} </p>
+              ) :
+              (
+                <p className="questionNumbers">{actualQuestionIndex} / {totalQuestion}</p>
+              )
+              }
+          </div>
+        </section>
+        <div className="questionAnswerInput">
+            {/* We give the ref below in order check the value */}
+          <input ref={answerInput} placeholder="Votre réponse" />
+          <button className="questionSubmit" type="submit">Valider</button>
+          </div>
         <div className="score_value">
         score is:{score}
         </div>

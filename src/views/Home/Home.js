@@ -3,21 +3,26 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Home = ({ categories }) => (
-  <section>
-    <h1>Homepage</h1>
+  <section className="container-content">
+    <header className="header-content">
+    <h1> THE TRIVIA </h1>
+    </header>
+    <section className="container">
+    <h2> Choisissez une catégorie </h2>
     {categories.length > 0 && (
-      <section>
+      <section className="container-categories">
         {categories.map(category => (
-          <Link to={`/categories/${category.id}`} key={category.id}>
+          <Link className="categories" to={`/categories/${category.id}`} key={category.id}>
             {category.title}
           </Link>
         ))}
       </section>
     )}
+    </section>
   </section>
 );
 
-// Le compossant Home récupére les catégories provenant de HomeContainer passer en props et les affiches grâce à une boucle 
+// Le compossant Home récupére les catégories provenant de HomeContainer passer en props et les affiches grâce à une boucle
 
 Home.propTypes = {
   categories: PropTypes.arrayOf(
@@ -31,5 +36,4 @@ Home.propTypes = {
 
 // Crée un model d'affichage pour les différentes catégories
 
-export default Home; // rend disponible le composant dans l'application 
-
+export default Home; // rend disponible le composant dans l'application
