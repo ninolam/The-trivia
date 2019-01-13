@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './Category.css';
 
 const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, score, lives }) => {
   const currentQuestion = category.clues[currentQuestionIndex];
@@ -9,9 +10,9 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
   
   return (
     <section>
-      <form onSubmit={ handleSubmit} className="container-category">
+      <form onSubmit={ handleSubmit} className="categoryContainer">
         <section className="question">
-          <div className="question-flex">
+          <div className="questionFlex">
           <div className="questionContainer">
             <h1 className="categoryTitle">{category.title}</h1>
             <h3 className="questionTitle">{currentQuestion.question}</h3>
@@ -30,10 +31,10 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
           <input ref={answerInput} placeholder="Votre réponse" />
           <button className="questionSubmit" type="submit">Valider</button>
           </div>
-        <div className="score_value">
+        <div className="scoreValue">
         score is:{score}
         </div>
-        <div className="live_value">
+        <div className="liveValue">
         lives is:{lives}
         </div>
         <button id="HomeButton" type="button">

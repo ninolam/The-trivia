@@ -132,11 +132,26 @@ class CategoryContainer extends Component {
     // before using data.
     if (this.state.lives === 0 ) {
       return (
-        <div>
-          <p>Game Over!</p>
-          <button type="button" onClick={this.resetScoreAndLives.bind(this)}>
+        <div className="gameOverSection">
+          <div className="pointsContainer">
+            <div className="livesContent">
+              <div className="lives"></div>
+              <div className="lives"></div>
+              <div className="lives"></div>
+            </div>
+            <div className="scoreContent">
+              <div className="score"> 1 points </div>
+            </div>
+          </div>
+          <div class="gameOverMessageContainer">
+            <span class="mark"> 0 / 10</span>
+            <p className="gameOverMessage">Game Over!</p>
+            <span class="mark"> 0 / 10</span>
+          </div>
+          <p className="looserMessage">You are a looser &nbsp;</p>
+          <button className="nextCategorieButton" type="button" onClick={this.resetScoreAndLives.bind(this)}>
           <Link to={'/'}>
-          Back to categories
+          Next categorie
           </Link>
           </button>
         </div>

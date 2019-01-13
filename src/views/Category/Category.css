@@ -1,0 +1,171 @@
+/* PAGE CATEGORY */
+.categoryContainer{
+  height: 100vh;
+}
+
+.question{
+  height: 55%;
+  background-color: #E4D3CC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.question > div {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.questionNumbers{
+  color: #341D9D;
+  margin: 0;
+  font-size: 20px;
+}
+
+.questionFlex{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.categoryTitle{
+  text-transform: uppercase;
+}
+
+.questionTitle{
+  color: #707070;
+  font-size: 20px;
+  margin: 0;
+}
+
+.questionAnswerInput{
+  margin-top: -34px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #341D9D;
+  text-align: center;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: #341D9D;
+  text-align: center;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: #341D9D;
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #341D9D;
+  text-align: center;
+}
+
+input, .questionSubmit{
+  height: 67px;
+  padding: 0 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  outline: none;
+}
+
+input{
+  color: #341D9D;
+  border: 3px solid #341D9D;
+  width: 350px;
+  margin-right: 30px;
+}
+
+.questionSubmit{
+  background-color: #341D9D;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100px;
+}
+
+/* Game Over Section */
+
+.gameOverSection {
+  background-color: #E4D3CC;
+  height: 100vh;
+}
+
+.pointsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.livesContent {
+  display: flex;
+}
+
+.lives {
+  height: 35px;
+  width: 40px;
+  background-color: #341D9D;
+  margin-right: 30px;
+}
+
+.scoreContent {
+  width: 120px;
+}
+
+.score {
+  color: #341D9D;
+  font-size: 33px;
+}
+
+.gameOverMessageContainer {
+  display: flex;
+  margin: 0 auto;
+  width: 21%;
+  margin-top: 20vh;
+}
+
+.gameOverMessage {
+  font-size: 41px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.mark {
+  color: red;
+  font-size: 20px;
+  padding-top: 54px;
+}
+
+.looserMessage {
+  color: #341D9D;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.looserMessage::after {
+  content: "\01F44E \01F629 ";
+}
+
+.nextCategorieButton {
+ float: right;
+ margin-right: 20%;
+ width: 224px;
+ height: 7vh;
+ background-color: #341D9D;
+ border-radius: 27px;
+ margin-top: 21vh;
+}
+
+a {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Conratulation Section */
+
+/* FIN PAGE CATEGORY */

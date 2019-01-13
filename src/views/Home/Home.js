@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './Home.css';
 
 // the home component retrieves categories from the HomeContainer and display them with a loop
 const Home = ({ categories }) => (
