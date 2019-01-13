@@ -25,9 +25,9 @@ class CategoryContainer extends Component {
     console.log(data);
     const score = localStorage.getItem('score')
     const lives = localStorage.getItem('lives')
-    
-    const currentCategory =this.state.category.title; 
-    console.log(currentCategory)
+
+    // const currentCategory =this.state.category.title; 
+    // console.log(currentCategory)
     
 
     //if(score > 0) {this.setState({score})}
@@ -144,14 +144,8 @@ class CategoryContainer extends Component {
       return (
         <div className="gameOverSection">
           <div className="pointsContainer">
-            <div className="livesContent">
-              <div className="lives"></div>
-              <div className="lives"></div>
-              <div className="lives"></div>
-            </div>
-            <div className="scoreContent">
-              <div className="score"> {this.state.score} points </div>
-            </div>
+            <div className="lives"> {this.state.lives} lives </div>
+            <div className="score"> {this.state.score} points </div>
           </div>
           <div class="messageContainer">
             <span class="mark"> 0 / 10</span>
@@ -171,14 +165,8 @@ class CategoryContainer extends Component {
       return (
         <div className="congratulationSection">
           <div className="pointsContainer">
-            <div className="livesContent">
-              <div className="lives"></div>
-              <div className="lives"></div>
-              <div className="lives"></div>
-            </div>
-            <div className="scoreContent">
-              <div className="score"> {this.state.score} points </div>
-            </div>
+            <div className="lives"> {this.state.lives} lives </div>
+            <div className="score"> {this.state.score} points </div>
           </div>
           <div class="winnerMessageContainer">
             <p className="winnerMessageContent">Congratulations!</p>

@@ -11,9 +11,9 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
   return (
     <section>
       <form onSubmit={ handleSubmit} className="categoryContainer">
-        <section className="question">
-          <div className="questionFlex">
-          <div className="questionContainer">
+        <section className="questionContainer">
+          <div className="questionContent">
+          <div className="currentQuestion">
             <h1 className="categoryTitle">{category.title}</h1>
             <h3 className="questionTitle">{currentQuestion.question}</h3>
           </div>
@@ -26,20 +26,22 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
               }
           </div>
         </section>
-        <div className="questionAnswerInput">
+        <div className="answerInput">
             {/* We give the ref below in order check the value */}
-          <input ref={answerInput} placeholder="Votre réponse" />
-          <button className="questionSubmit" type="submit">Valider</button>
-          </div>
-        <div className="scoreValue">
-        score is:{score}
+          <input ref={answerInput} placeholder="Your answer" />
+          <button className="answerSubmit" type="submit">Validate</button>
         </div>
-        <div className="liveValue">
-        lives is:{lives}
-        </div>
-        <button id="HomeButton" type="button">
+        <button className="homeButton" type="button">
           <Link to={"/"}>Back To Home</Link>
         </button>
+        <div className="pointsContainer">
+          <div className="liveValue">
+          {lives} lives
+          </div>
+          <div className="scoreValue">
+          {score} points
+          </div>
+        </div>
       </form>
     </section>
   );

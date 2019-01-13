@@ -3,44 +3,82 @@
   height: 100vh;
 }
 
-.question{
-  height: 55%;
+.questionContainer {
   background-color: #E4D3CC;
   display: flex;
   flex-direction: column;
+  height: 55%;
   justify-content: center;
   text-align: left;
 }
 
-.question > div {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.questionNumbers{
-  color: #341D9D;
-  margin: 0;
-  font-size: 20px;
-}
-
-.questionFlex{
-  display: flex;
+.questionContent {
   align-items: flex-end;
+  display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
 }
 
-.categoryTitle{
+.categoryTitle {
   text-transform: uppercase;
+  margin-bottom: 50px;
 }
 
-.questionTitle{
+.questionTitle {
   color: #707070;
   font-size: 20px;
   margin: 0;
 }
 
-.questionAnswerInput{
+.questionNumbers {
+  color: #341D9D;
+  font-size: 30px;
+  margin: 0;
+}
+
+.answerInput {
   margin-top: -34px;
+}
+
+input {
+  color: #341D9D;
+  border: 3px solid #341D9D;
+  margin-right: 30px;
+  width: 350px;
+}
+
+input, .answerSubmit, .homeButton {
+  font-size: 20px;
+  border-radius: 25px;
+  height: 67px;
+  outline: none;
+  padding: 0 10px;
+}
+
+.answerSubmit, .homeButton {
+  background-color: #341D9D;
+  border: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+  width: 180px;
+}
+
+.homeButton {
+  float: right;
+  margin-right: 32.5%;
+  margin-top: 20px;
+}
+
+.liveValue {
+  color: #341D9D;
+  font-size: 33px;
+}
+
+.scoreValue {
+  color: #341D9D;
+  font-size: 33px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -63,29 +101,6 @@
   text-align: center;
 }
 
-input, .questionSubmit{
-  height: 67px;
-  padding: 0 10px;
-  border-radius: 25px;
-  font-size: 20px;
-  outline: none;
-}
-
-input{
-  color: #341D9D;
-  border: 3px solid #341D9D;
-  width: 350px;
-  margin-right: 30px;
-}
-
-.questionSubmit{
-  background-color: #341D9D;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  width: 100px;
-}
-
 /* Game Over Section and Congratulation Section */
 
 .gameOverSection, .congratulationSection {
@@ -96,24 +111,14 @@ input{
 .pointsContainer {
   display: flex;
   justify-content: space-between;
-  width: 90%;
   margin: 0 auto;
   padding-top: 100px;
-}
-
-.livesContent {
-  display: flex;
+  width: 80%;
 }
 
 .lives {
-  height: 35px;
-  width: 40px;
-  background-color: #341D9D;
-  margin-right: 30px;
-}
-
-.scoreContent {
-  width: 120px;
+  color: #341D9D;
+  font-size: 33px;
 }
 
 .score {
@@ -121,27 +126,20 @@ input{
   font-size: 33px;
 }
 
-.messageContainer {
-  display: flex;
-  margin: 0 auto;
-  width: 21%;
-  margin-top: 20vh;
-}
-
-.messageContent {
-  font-size: 41px;
-  padding-left: 10px;
-  padding-right: 10px;
+.looserMessage, .winnerMessage {
+  color: #341D9D;
+  font-size: 27px;
+  font-weight: bold;
 }
 
 .nextCategorieButton {
-  float: right;
-  margin-right: 20%;
-  width: 224px;
-  height: 7vh;
   background-color: #341D9D;
   border-radius: 27px;
+  float: right;
+  height: 7vh;
+  margin-right: 10%;
   margin-top: 21vh;
+  width: 224px;
  }
  
  a {
@@ -150,13 +148,21 @@ input{
    font-weight: bold;
  }
 
- .looserMessage, .winnerMessage {
-  color: #341D9D;
-  font-size: 27px;
-  font-weight: bold;
+/* Game Over Section*/
+
+.messageContainer {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20vh;
+  width: 21%;
 }
 
-/* Game Over Section*/
+.messageContent {
+  color: #626060;
+  font-size: 41px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .mark {
   color: red;
@@ -168,16 +174,17 @@ input{
   content: "\01F44E \01F629 ";
 }
 
-/* Conratulation Section */
+/* Congratulation Section */
 
 .winnerMessageContainer {
   display: flex;
   margin: 0 auto;
-  width: 24%;
   margin-top: 20vh;
+  width: 24%;
 }
 
 .winnerMessageContent {
+  color: #626060;
   font-size: 41px;
   padding-left: 10px;
   padding-right: 10px;
