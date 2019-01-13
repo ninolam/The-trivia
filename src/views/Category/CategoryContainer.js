@@ -77,8 +77,8 @@ class CategoryContainer extends Component {
             <div className="lives"> {this.state.lives} lives </div>
             <div className="score"> {this.state.score} points </div>
           </div>
-          <div class="messageContainer">
-            <span class="mark"> 0 / 10</span>
+          <div className="messageContainer">
+            <span className="mark"> 0 / 10</span>
             <p className="messageContent">Game Over!</p>
             <span className="mark"> 0 / 10</span>
           </div>
@@ -97,7 +97,7 @@ class CategoryContainer extends Component {
             <div className="lives"> {this.state.lives} lives </div>
             <div className="score"> {this.state.score} points </div>
           </div>
-          <div class="winnerMessageContainer">
+          <div className="winnerMessageContainer">
             <p className="winnerMessageContent">Congratulations!</p>
           </div>
           <p className="winnerMessage">You are a winner &nbsp;</p>
