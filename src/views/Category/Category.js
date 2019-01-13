@@ -9,6 +9,7 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
   const actualQuestionIndex = currentQuestionIndex + 1;
 
   return (
+        //display the question page
     <section>
       <form onSubmit={ handleSubmit} className="categoryContainer">
         <section className="questionContainer">
@@ -47,6 +48,7 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
   );
 }
 
+// typechecking the category with proptypyes
 Category.propTypes = {
   category: PropTypes.shape({}).isRequired,
   currentQuestionIndex: PropTypes.number.isRequired,
