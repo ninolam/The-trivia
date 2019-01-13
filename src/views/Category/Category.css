@@ -159,6 +159,7 @@ input, .answerSubmit, .homeButton {
 
 .messageContent {
   color: #626060;
+  font-family: 'BigCaslon-Medium';
   font-size: 41px;
   padding-left: 10px;
   padding-right: 10px;
@@ -178,6 +179,7 @@ input, .answerSubmit, .homeButton {
 
 .winnerMessageContainer {
   display: flex;
+  font-family: 'BigCaslon-Medium';
   margin: 0 auto;
   margin-top: 20vh;
   width: 24%;
