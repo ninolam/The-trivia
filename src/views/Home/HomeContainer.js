@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import Home from './Home';
 import api from '../../helpers/api';
 
+// save the categories in a state component
 class HomeContainer extends Component {
   state = {
     categories: [],
   }
+
+  // save the categories in the const data 
   async componentDidMount() {
     const data = await api.getCategories();
+    // update the state with the data
     this.setState({
       categories: data,
     });
   }
+  
   render() {
     return (
+  // pass the data to the home component with a props
       <Home categories={this.state.categories} />
     );
   }
 }
 
 export default HomeContainer;
-
-
-// Cette page récupére les données de l'api et les stock dans une variable data, 
-// le state des catégorie est ensuite mit à jour avec les nouvelles data,
-// Puis toutes les catégories sont stocké grâce et passer en props à la Home pour que celle-ci les affiches.

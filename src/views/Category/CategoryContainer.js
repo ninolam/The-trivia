@@ -3,16 +3,14 @@ import api from '../../helpers/api';
 import Category from './Category';
 import { Link } from 'react-router-dom';
 
+//save the current categorie, question, score and lives
 class CategoryContainer extends Component {
-
     state = {
       category: null,
       currentQuestion: 0,
       score: 0,
-      lives: 3
-      
+      lives: 3  
     }
-
      baseState = this.state.lives
   
   
@@ -26,7 +24,9 @@ class CategoryContainer extends Component {
     console.log(data);
     const score = localStorage.getItem('score')
     const lives = localStorage.getItem('lives')
-    
+    const category = localStorage.getItem('category')
+
+    if(score > 0) {this.setState({score})}
 
  /**
   * this conditions about the score is notworking when trying to reset the score on the page "game",
@@ -59,14 +59,14 @@ class CategoryContainer extends Component {
       category: data,
     });
 
-   
   }
 
   componentDidUpdate() {
     const{score, lives, category} = this.state
     localStorage.setItem('score', score )
     localStorage.setItem('lives', lives )
-    localStorage.setItem('category', category.title )
+    localStorage.setItem('category', category )
+    console.log(category.title)
 
 // this condition is not working when i try to reset the score on the page "game over"
     // if (this.state.lives === 0) {

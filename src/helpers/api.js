@@ -12,3 +12,5 @@ class api {
 }
 
 export default new api();
+
+// Get the categories from Api
