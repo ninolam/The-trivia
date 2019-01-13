@@ -1,6 +1,6 @@
 Welcome to TRIVIA, this project is a quizz made with Jservice API that you can find [here](https://github.com/sottenad/jService). This is a school project bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Groupe : Sophia Gounani, Nancy Campbell and Nino Lamoureux.
+Made by : Sophia Gounani, Nancy Campbell and Nino Lamoureux.
 
 ## Available Scripts
 
