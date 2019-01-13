@@ -86,9 +86,9 @@ input{
   width: 100px;
 }
 
-/* Game Over Section */
+/* Game Over Section and Congratulation Section */
 
-.gameOverSection {
+.gameOverSection, .congratulationSection {
   background-color: #E4D3CC;
   height: 100vh;
 }
@@ -121,18 +121,42 @@ input{
   font-size: 33px;
 }
 
-.gameOverMessageContainer {
+.messageContainer {
   display: flex;
   margin: 0 auto;
   width: 21%;
   margin-top: 20vh;
 }
 
-.gameOverMessage {
+.messageContent {
   font-size: 41px;
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.nextCategorieButton {
+  float: right;
+  margin-right: 20%;
+  width: 224px;
+  height: 7vh;
+  background-color: #341D9D;
+  border-radius: 27px;
+  margin-top: 21vh;
+ }
+ 
+ a {
+   color: white;
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .looserMessage, .winnerMessage {
+  color: #341D9D;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+/* Game Over Section*/
 
 .mark {
   color: red;
@@ -140,32 +164,35 @@ input{
   padding-top: 54px;
 }
 
-.looserMessage {
-  color: #341D9D;
-  font-size: 27px;
-  font-weight: bold;
-}
-
 .looserMessage::after {
   content: "\01F44E \01F629 ";
 }
 
-.nextCategorieButton {
- float: right;
- margin-right: 20%;
- width: 224px;
- height: 7vh;
- background-color: #341D9D;
- border-radius: 27px;
- margin-top: 21vh;
-}
-
-a {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-
 /* Conratulation Section */
+
+.winnerMessageContainer {
+  display: flex;
+  margin: 0 auto;
+  width: 24%;
+  margin-top: 20vh;
+}
+
+.winnerMessageContent {
+  font-size: 41px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.winnerMessage::after {
+  content: "\01F60E \01F44F ";
+}
+
+.winnerMessageContent::before {
+  content: "\01F389 ";
+}
+
+.winnerMessageContent::after {
+  content: "\01F389 ";
+}
 
 /* FIN PAGE CATEGORY */

@@ -7,7 +7,7 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
   const currentQuestion = category.clues[currentQuestionIndex];
   const totalQuestion = category.clues_count;
   const actualQuestionIndex = currentQuestionIndex + 1;
-  
+
   return (
     <section>
       <form onSubmit={ handleSubmit} className="categoryContainer">

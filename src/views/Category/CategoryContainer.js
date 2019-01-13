@@ -11,8 +11,8 @@ class CategoryContainer extends Component {
       score: 0,
       lives: 3  
     }
-     baseState = this.state.lives
-  
+     baseState = this.state.lives;
+
   
   // createRef in order to bring back input value to its parent
   answerInput = createRef();
@@ -20,13 +20,17 @@ class CategoryContainer extends Component {
   // async needed when using promise
   async componentDidMount() {
     const data = await api.getCategoryById(this.props.match.params.id);
+
     // stored response in the state;
     console.log(data);
     const score = localStorage.getItem('score')
     const lives = localStorage.getItem('lives')
-    const category = localStorage.getItem('category')
+    
+    const currentCategory =this.state.category.title; 
+    console.log(currentCategory)
+    
 
-    if(score > 0) {this.setState({score})}
+    //if(score > 0) {this.setState({score})}
 
  /**
   * this conditions about the score is notworking when trying to reset the score on the page "game",
@@ -54,6 +58,8 @@ class CategoryContainer extends Component {
     //   this.setState({lives})
     // }
 
+    //if(previousCategory != category.id )
+
 
     this.setState({
       category: data,
@@ -61,12 +67,16 @@ class CategoryContainer extends Component {
 
   }
 
+ // if(previousCategory === )
+
+
   componentDidUpdate() {
     const{score, lives, category} = this.state
     localStorage.setItem('score', score )
     localStorage.setItem('lives', lives )
-    localStorage.setItem('category', category )
-    console.log(category.title)
+    localStorage.setItem('category', category.title )
+    const previousCategory = localStorage.getItem('category')
+    console.log(previousCategory)
 
 // this condition is not working when i try to reset the score on the page "game over"
     // if (this.state.lives === 0) {
@@ -140,18 +150,18 @@ class CategoryContainer extends Component {
               <div className="lives"></div>
             </div>
             <div className="scoreContent">
-              <div className="score"> 1 points </div>
+              <div className="score"> {this.state.score} points </div>
             </div>
           </div>
-          <div class="gameOverMessageContainer">
+          <div class="messageContainer">
             <span class="mark"> 0 / 10</span>
-            <p className="gameOverMessage">Game Over!</p>
-            <span class="mark"> 0 / 10</span>
+            <p className="messageContent">Game Over!</p>
+            <span className="mark"> 0 / 10</span>
           </div>
           <p className="looserMessage">You are a looser &nbsp;</p>
           <button className="nextCategorieButton" type="button" onClick={this.resetScoreAndLives.bind(this)}>
           <Link to={'/'}>
-          Next categorie
+          Back to categories
           </Link>
           </button>
         </div>
@@ -159,11 +169,22 @@ class CategoryContainer extends Component {
     }
     if(currentQuestion === clues_count[2]){
       return (
-        <div>
-          <p> Congratulations.</p>
-          <p>You win! You have {this.state.lives} lives left !</p>
-          <p>You have {this.state.score} points !</p>
-          <button type="button" onClick={this.initialState}>
+        <div className="congratulationSection">
+          <div className="pointsContainer">
+            <div className="livesContent">
+              <div className="lives"></div>
+              <div className="lives"></div>
+              <div className="lives"></div>
+            </div>
+            <div className="scoreContent">
+              <div className="score"> {this.state.score} points </div>
+            </div>
+          </div>
+          <div class="winnerMessageContainer">
+            <p className="winnerMessageContent">Congratulations!</p>
+          </div>
+          <p className="winnerMessage">You are a winner &nbsp;</p>
+          <button className="nextCategorieButton" type="button" onClick={this.initialState}>
           <Link to={'/'}>
           Back to categories
           </Link>
