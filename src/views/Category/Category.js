@@ -30,10 +30,10 @@ const Category = ({ category, currentQuestionIndex, handleSubmit, answerInput, s
             {/* We give the ref below in order check the value */}
           <input ref={answerInput} placeholder="Your answer" />
           <button className="answerSubmit" type="submit">Validate</button>
+          <button className="homeButton" type="button">
+            <Link to={"/"}>Back To Home</Link>
+          </button>
         </div>
-        <button className="homeButton" type="button">
-          <Link to={"/"}>Back To Home</Link>
-        </button>
         <div className="pointsContainer">
           <div className="liveValue">
           {lives} lives

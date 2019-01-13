@@ -66,9 +66,7 @@ input, .answerSubmit, .homeButton {
 }
 
 .homeButton {
-  float: right;
-  margin-right: 32.5%;
-  margin-top: 20px;
+  margin-left: 30px;
 }
 
 .liveValue {
